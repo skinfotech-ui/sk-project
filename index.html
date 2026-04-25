@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SK Infotech Solutions | IT Hardware & Networking Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="SK Infotech Solutions - Your trusted IT partner for computer hardware, networking, server solutions and IT support."
+  />
+  <style>
+    :root {
+      --primary: #e02424; /* red */
+      --primary-dark: #b31919;
+      --accent: #ffffff;
+      --bg: #071b2f;
+      --bg-light: #0f2641;
+      --card-bg: #0e223a;
+      --text-main: #f5f5f5;
+      --text-muted: #b0bac8;
+      --border-soft: #1d3554;
+      --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.35);
+      --radius-lg: 18px;
+      --transition: 0.25s ease;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #123258 0, #020817 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    /* Layout */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(2, 8, 23, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      gap: 16px;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo {
+      height: 44px;
+      width: auto;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: 18px;
+    }
+    .brand-tag {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+    }
+    .nav-link {
+      position: relative;
+      padding-bottom: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 999px;
+      transition: width var(--transition);
+    }
+    .nav-link:hover {
+      color: var(--accent);
+    }
+    .nav-link.active {
+      color: var(--accent);
+    }
+    .nav-link.active::after {
+      width: 22px;
+    }
+    .nav-cta {
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--primary);
+      border: none;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      transition: background var(--transition), transform var(--transition);
+    }
+    .nav-cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .nav-toggle span {
+      width: 22px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+    /* Hero */
+    .hero {
+      padding: 40px 0 60px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.6fr);
+      gap: 40px;
+      align-items: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(224, 36, 36, 0.12);
+      border: 1px solid rgba(224, 36, 36, 0.32);
+      color: var(--primary);
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+    .hero-title {
+      font-size: clamp(30px, 4vw, 40px);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .accent-red {
+      color: var(--primary);
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 18px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 26px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .hero-meta-item span {
+      display: block;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 15px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .btn-primary,
+    .btn-outline {
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background var(--transition), color var(--transition),
+        transform var(--transition), border-color var(--transition);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--accent);
+      box-shadow: var(--shadow-soft);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--accent);
+    }
+    .btn-outline:hover {
+      background: rgba(15, 38, 65, 0.9);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    .hero-footnote {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .hero-panel {
+      background: radial-gradient(circle at top left, #1f3c65 0, #050b16 70%);
+      border-radius: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at top, rgba(224, 36, 36, 0.18), transparent 55%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .hero-panel-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-panel-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .hero-panel-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .hero-stat-card {
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(3, 15, 35, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 12px;
+    }
+    .hero-stat-label {
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .hero-stat-value {
+      font-weight: 600;
+    }
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .chip {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(6, 20, 46, 0.85);
+    }
+    .hero-panel-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    /* Sections */
+    section {
+      padding: 32px 0;
+      scroll-margin-top: 80px;
+    }
+    .section-heading {
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .section-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 420px;
+    }
+    /* Services */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 14px 14px 16px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition),
+        border-color var(--transition), background var(--transition);
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+      border-color: rgba(224, 36, 36, 0.55);
+      background: #122845;
+    }
+    .card-pill {
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(15, 38, 65, 0.9);
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .card-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .card-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .card-list {
+      list-style: none;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .card-list li {
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+    .card-list li::before {
+      content: "•";
+      position: absolute;
+      left: 3px;
+      top: 0;
+      color: var(--primary);
+    }
+    /* About & Why us */
+    .split {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+    }
+    .list-check {
+      list-style: none;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .list-check li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+    .list-check li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #4ade80;
+      font-size: 12px;
+    }
+    .info-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .info-badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 38, 65, 0.9);
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+    }
+    .highlight-box {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 12px 14px;
+      border: 1px dashed var(--border-soft);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    /* FAQ */
+    .faq-item {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border-soft);
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 10px 12px;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question span {
+      max-width: 90%;
+    }
+    .faq-toggle {
+      font-size: 20px;
+    }
+    .faq-answer {
+      padding: 0 12px 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: none;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+    }
+    form {
+      display: grid;
+      gap: 10px;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 13px;
+    }
+    .field label {
+      color: var(--text-muted);
+    }
+    .field input,
+    .field textarea,
+    .field select {
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+      background: rgba(5, 16, 36, 0.9);
+      padding: 9px 10px;
+      color: var(--text-main);
+      font-size: 13px;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition),
+        background var(--transition);
+    }
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: rgba(224, 36, 36, 0.7);
+      box-shadow: 0 0 0 1px rgba(224, 36, 36, 0.4);
+      background: rgba(7, 20, 44, 0.95);
+    }
+    .field-helper {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+    .contact-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 16px;
+      border: 1px solid var(--border-soft);
+      font-size: 13px;
+      color: var(--text-muted);
+      box-shadow: var(--shadow-soft);
+    }
+    .contact-row {
+      margin-top: 8px;
+    }
+    .contact-row strong {
+      color: var(--accent);
+      display: block;
+    }
+    .contact-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .success-message {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #4ade80;
+      display: none;
+    }
+    .error-message {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #f97373;
+      display: none;
+    }
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 14px 0 18px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+    .footer-links {
+      display: flex;
+      gap: 10px;
+    }
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+    /* Back to top */
+    #backToTop {
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(2, 6, 23, 0.88);
+      color: var(--accent);
+      font-size: 11px;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      display: none;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    #backToTop.visible {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-panel {
+        order: -1;
+      }
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .split,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    @media (max-width: 720px) {
+      .nav-links {
+        position: absolute;
+        inset: 52px 0 auto;
+        background: rgba(2, 6, 23, 0.98);
+        padding: 10px 16px 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: none;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-toggle {
+        display: flex;
+      }
+      .nav-cta {
+        display: none;
+      }
+      .hero {
+        padding-top: 26px;
+      }
+      .card-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .section-title {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header>
+    <div class="container nav">
+      <div class="nav-left">
+        <!-- Replace src with your logo path -->
+        <img
+          src="images/sk-logo.png"
+          alt="SK Infotech Solutions Logo"
+          class="nav-logo"
+        />
+        <div class="brand-text">
+          <span class="brand-name">SK Infotech Solutions</span>
+          <span class="brand-tag">Your Trusted IT Partner</span>
+        </div>
+      </div>
+      <div class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a class="nav-link active" data-target="home">Home</a>
+        <a class="nav-link" data-target="services">Services</a>
+        <a class="nav-link" data-target="about">About</a>
+        <a class="nav-link" data-target="whyus">Why Us</a>
+        <a class="nav-link" data-target="faq">FAQ</a>
+        <a class="nav-link" data-target="contact">Contact</a>
+      </nav>
+      <button class="nav-cta" data-target="contact">Get Support</button>
+    </div>
+  </header>
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span>End-to-End IT Hardware & Networking Services</span>
+        </div>
+        <h1 class="hero-title">
+          Reliable <span class="accent-red">IT Infrastructure</span><br />
+          for Your Business.
+        </h1>
+        <p class="hero-sub">
+          SK Infotech Solutions delivers complete IT solutions – from desktops
+          and servers to structured cabling, secure networks, and ongoing
+          support – so you can focus on your business.
+        </p>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span>10+ Years</span>
+            Experience in IT Infrastructure
+          </div>
+          <div class="hero-meta-item">
+            <span>24×7 Support</span>
+            Remote & Onsite Assistance
+          </div>
+          <div class="hero-meta-item">
+            <span>100% Trust</span>
+            Clear communication & quick response
+          </div>
+        </div>
+        <div class="hero-actions">
+          <button class="btn-primary" data-target="contact">
+            Request a Callback →
+          </button>
+          <button class="btn-outline" data-target="services">
+            View All Services
+          </button>
+        </div>
+        <p class="hero-footnote">
+          Laptops • Desktops • Servers • Routers • Switches • Firewalls • Wi-Fi
+          • CCTV • AMC & Support
+        </p>
+      </div>
+      <aside class="hero-panel">
+        <div class="hero-panel-inner">
+          <h2 class="hero-panel-title">
+            Smart IT for Modern Offices & SMEs
+          </h2>
+          <p class="hero-panel-text">
+            We design, install and maintain secure, high-performance IT
+            environments tailored to your exact requirements.
+          </p>
+          <div class="hero-stats">
+            <div class="hero-stat-card">
+              <div class="hero-stat-label">Systems Deployed</div>
+              <div class="hero-stat-value">500+ Devices</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="hero-stat-label">Networks Built</div>
+              <div class="hero-stat-value">80+ Sites</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="hero-stat-label">Avg. Response Time</div>
+              <div class="hero-stat-value">&lt; 2 Hours*</div>
+            </div>
+            <div class="hero-stat-card">
+ <div class="hero-stat-label">Support Modes</div>
+              <div class="hero-stat-value">Remote & Onsite</div>
+            </div>
+          </div>
+          <div class="hero-chip-row">
+            <span class="chip">New office setup</span>
+            <span class="chip">IT hardware upgrades</span>
+            <span class="chip">Network troubleshooting</span>
+          </div>
+          <div class="hero-panel-footer">
+            <span>Share your requirement – we’ll design the right solution.</span>
+            <span style="white-space: nowrap;">📞 +91-9493927571</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <h2 class="section-title">IT Hardware & Networking Services</h2>
+          <p class="section-sub">
+            From a single PC to a full data-center rack, SK Infotech Solutions
+            covers planning, supply, installation and maintenance.
+          </p>
+        </div>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-pill">
+            <span class="card-pill-dot"></span>
+            End-User Devices
+          </div>
+          <h3 class="card-title">Desktop & Laptop Solutions</h3>
+          <p class="card-text">
+            Supply, installation and optimization of branded desktops and
+            laptops, tailored to your team’s workloads.
+          </p>
+          <ul class="card-list">
+            <li>New system supply & configuration</li>
+            <li>OS installation & data migration</li>
+            <li>Performance tuning & upgrades (RAM, SSD, etc.)</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-pill">
+            <span class="card-pill-dot"></span>
+            Servers & Storage
+          </div>
+          <h3 class="card-title">Server & Virtualization Setup</h3>
+          <p class="card-text">
+            Robust on-premises and hybrid servers for applications, file
+            sharing, databases and more.
+          </p>
+          <ul class="card-list">
+            <li>Rack & tower server deployment</li>
+            <li>Active Directory, file & print servers</li>
+            <li>Backup & disaster recovery planning</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-pill">
+            <span class="card-pill-dot"></span>
+            Core Networking
+          </div>
+          <h3 class="card-title">LAN & WAN Network Design</h3>
+          <p class="card-text">
+            High-speed, secure wired and wireless networks for offices,
+            branches, and remote locations.
+          </p>
+          <ul class="card-list">
+            <li>Network assessment & planning</li>
+            <li>Switches, routers & firewall configuration</li>
+            <li>VPN & remote-access setup</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-pill">
+            <span class="card-pill-dot"></span>
+            Structured Cabling
+          </div>
+          <h3 class="card-title">Cabling & Rack Management</h3>
+          <p class="card-text">
+            Organized cabling for clean networks that are easy to expand and
+            troubleshoot.
+          </p>
+          <ul class="card-list">
+            <li>CAT6 / fiber optic cabling</li>
+            <li>Patch panels & rack dressing</li>
+            <li>Labeling & documentation</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-pill">
+            <span class="card-pill-dot"></span>
+            Security
+          </div>
+          <h3 class="card-title">Firewall & CCTV Integration</h3>
+          <p class="card-text">
+            Protect your network, data and premises with managed security
+            solutions.
+          </p>
+          <ul class="card-list">
+            <li>Firewall deployment & policies</li>
+            <li>Secure Wi-Fi & guest networks</li>
+            <li>CCTV installation & remote viewing setup</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-pill">
+            <span class="card-pill-dot"></span>
+            Support
+          </div>
+          <h3 class="card-title">Annual Maintenance & Support</h3>
+          <p class="card-text">
+            Proactive support plans to keep your IT environment healthy and
+            minimize downtime.
+          </p>
+          <ul class="card-list">
+            <li>Remote & onsite troubleshooting</li>
+            <li>Preventive health checks</li>
+            <li>Asset tracking & IT documentation</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <h2 class="section-title">About SK Infotech Solutions</h2>
+          <p class="section-sub">
+            We combine strong technical expertise with a service-first mindset
+            to become your long-term IT partner.
+          </p>
+        </div>
+      </div>
+      <div class="split">
+        <div>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 10px;">
+            SK Infotech Solutions is an IT services company focused on reliable
+            computer hardware and networking solutions for small and mid-size
+            businesses, start-ups, educational institutions, and home offices.
+          </p>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 10px;">
+            Whether you are setting up a new office, upgrading an existing IT
+            infrastructure, or troubleshooting performance issues, we provide
+            honest guidance, quality products and quick response.
+          </p>
+          <ul class="list-check">
+            <li>Vendor-neutral advice focused on your requirements</li>
+            <li>Standardized implementation checklists for consistent quality</li>
+            <li>Clear documentation so you always know how things work</li>
+          </ul>
+          <div class="info-badge-row">
+            <span class="info-badge">Onsite visits on request</span>
+            <span class="info-badge">Support via call, WhatsApp & email</span>
+            <span class="info-badge">AMC contracts available</span>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <strong style="display:block; margin-bottom: 6px;"
+            >Industries We Serve</strong
+          >
+          <p>
+            Offices & SMEs · Retail & Showrooms · Clinics & Hospitals ·
+            Schools & Colleges · Apartments & Gated Communities · Home Offices
+            & Freelancers
+          </p>
+          <p style="margin-top: 8px;">
+            Not sure what you need? Share your current setup and
+            challenges—we’ll propose a practical roadmap with clear steps and
+            estimated budgets.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Why Us -->
+  <section id="whyus">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <h2 class="section-title">Why Choose SK Infotech Solutions?</h2>
+          <p class="section-sub">
+            We treat your IT environment like our own – with clean work,
+            documented changes and future-ready designs.
+          </p>
+        </div>
+      </div>
+      <div class="split">
+        <div>
+          <ul class="list-check">
+            <li>Single point of contact for hardware, networking and support</li>
+            <li>Transparent pricing and clear scope before starting work</li>
+            <li>Minimal disruption to your day-to-day operations</li>
+            <li>Recommendations based on real-world experience, not just theory</li>
+            <li>Friendly team that explains things in simple language</li>
+          </ul>
+        </div>
+        <div class="hero-panel" style="padding: 14px 16px;">
+          <div class="hero-panel-inner">
+            <div class="hero-panel-title">Our Engagement Process</div>
+            <ol
+              style="
+                font-size: 12px;
+                color: var(--text-muted);
+                margin-left: 16px;
+                margin-top: 6px;
+              "
+            >
+              <li>Understand your current setup & challenges</li>
+              <li>Survey the site and capture requirements</li>
+              <li>Submit solution options with estimated budgets</li>
+              <li>Plan implementation with minimal downtime</li>
+              <li>Provide documentation & ongoing support</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-sub">
+            A few quick answers. If you have more questions, feel free to reach
+            out – we’re happy to help.
+          </p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do you provide both hardware and networking services?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          Yes. We handle complete IT infrastructure – desktops, laptops,
+          servers, routers, switches, cabling, Wi-Fi, firewalls, CCTV and more.
+          You don’t have to coordinate with multiple vendors.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can you support us remotely if we are in another city?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          Most issues can be resolved remotely through secure remote-access
+          tools, phone or video calls. For hardware or cabling work, we can
+          plan onsite visits as needed.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do you offer annual maintenance contracts (AMC)?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          Yes. AMC plans include scheduled health checks, priority support,
+          preventive maintenance and discounted onsite visits. We can customize
+          a plan based on your device count and locations.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What information should I share to get a quotation?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          Just share your current setup (approx. number of systems, floors,
+          rooms) and what you want to achieve (new office, upgrade Wi-Fi,
+          secure network, etc.). Add any preferred brands or special
+          requirements – we’ll take it from there.
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <h2 class="section-title">Share Your Requirement</h2>
+          <p class="section-sub">
+            Tell us a bit about your IT environment. We’ll get in touch with a
+            simple plan and next steps.
+          </p>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <form id="contactForm" novalidate>
+            <div class="field">
+              <label for="name">Name *</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div class="field">
+              <label for="email">Email *</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone / WhatsApp</label>
+              <input id="phone" name="phone" type="tel" />
+              <div class="field-helper">
+                We’ll use this only for updates related to your request.
+              </div>
+            </div>
+            <div class="field">
+              <label for="service">Service Type</label>
+              <select id="service" name="service">
+                <option value="">Select a service</option>
+                <option>New office IT setup</option>
+                <option>Desktop / laptop supply & service</option>
+                <option>Network / Wi-Fi setup or upgrade</option>
+                <option>Server installation / migration</option>
+                <option>Firewall / CCTV security</option>
+                <option>AMC / ongoing IT support</option>
+                <option>Other (please mention below)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Requirement Details *</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                placeholder="Example: Setup 20-seat office network with Wi-Fi, internet failover and CCTV coverage."
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-primary">
+              Submit Request
+            </button>
+            <div id="successMessage" class="success-message">
+              Thank you! Your request is captured locally. Integrate this form
+              with email or backend to receive submissions.
+            </div>
+            <div id="errorMessage" class="error-message">
+              Please fill in all required fields (Name, Email, Requirement
+              Details).
+            </div>
+          </form>
+        </div>
+        <aside class="contact-card">
+          <div><strong>Contact Details</strong></div>
+          <div class="contact-row">
+            <strong>Phone / WhatsApp</strong>
+            +91-9493927571
+          </div>
+          <div class="contact-row">
+            <strong>Email</strong>
+            skinfotech156@gmail.com
+          </div>
+          <div class="contact-row">
+            <strong>Location</strong>
+            Vijayawada, Amaravathi, Guntur & Mangalagiri, Andhra Pradesh, India.
+          </div>
+          <p class="contact-note">
+            Working hours: Monday – Saturday, 10:00 AM to 9:00 PM IST.<br />
+            Emergency support is available for existing customers as per AMC /
+            support agreement.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-row">
+      <span>© <span id="year"></span> SK Infotech Solutions. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="#home" data-target="home">Back to Home</a>
+        <a href="#contact" data-target="contact">Request Support</a>
+      </div>
+    </div>
+  </footer>
+  <button id="backToTop">↑ Top</button>
+  <script>
+    // Smooth scroll for nav links & buttons
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      window.scrollTo({
+        top: el.offsetTop - 70,
+        behavior: "smooth",
+      });
+    }
+    document.querySelectorAll("[data-target]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const target = el.getAttribute("data-target");
+        if (target) scrollToSection(target);
+        if (window.innerWidth <= 720) {
+          navLinks.classList.remove("open");
+        }
+      });
+    });
+    // Active nav link highlight on scroll
+    const sections = ["home", "services", "about", "whyus", "faq", "contact"];
+    const navLinksList = document.querySelectorAll(".nav-link");
+    function updateActiveNav() {
+      const scrollPos = window.scrollY + 120;
+      let current = "home";
+      sections.forEach((id) => {
+        const sec = document.getElementById(id);
+        if (sec && scrollPos >= sec.offsetTop) {
+          current = id;
+        }
+      });
+      navLinksList.forEach((link) => {
+        const target = link.getAttribute("data-target");
+        if (target === current) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    }
+    window.addEventListener("scroll", updateActiveNav);
+    window.addEventListener("load", updateActiveNav);
+    // Mobile nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+    // FAQ accordion
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      item
+        .querySelector(".faq-question")
+        .addEventListener("click", () => {
+          const isOpen = item.classList.contains("open");
+          document
+            .querySelectorAll(".faq-item")
+            .forEach((i) => i.classList.remove("open"));
+          if (!isOpen) {
+            item.classList.add("open");
+          }
+        });
+    });
+    // Contact form simple validation (front-end only)
+    const contactForm = document.getElementById("contactForm");
+    const successMessage = document.getElementById("successMessage");
+    const errorMessage = document.getElementById("errorMessage");
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      successMessage.style.display = "none";
+      errorMessage.style.display = "none";
+      const name = contactForm.name.value.trim();
+      const email = contactForm.email.value.trim();
+      const phone = contactForm.phone.value.trim();
+      const service = contactForm.service.trim();
+      const message = contactForm.message.value.trim();
+      if (!name || !email || !message) {
+        errorMessage.style.display = "block";
+        return;
+      }
+      // For now, only show success message.
+      // To make this live, send data to an email service / backend.
+      
+  }
+
+  
+    });// Contact form logic START
+
+contactForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  successMessage.style.display = "none";
+  errorMessage.style.display = "none";
+
+  const name = contactForm.name.value.trim();
+  const email = contactForm.email.value.trim();
+  const phone = contactForm.phone.value.trim();
+  const service = contactForm.service.value.trim();
+  const message = contactForm.message.value.trim();
+
+  if (!name || !email || !message) {
+    errorMessage.style.display = "block";
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:5000/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, phone, service, message }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      successMessage.innerText = "Request sent successfully!";
+      successMessage.style.display = "block";
+      contactForm.reset();
+    } else {
+      errorMessage.innerText = data.msg || "Error sending request!";
+      errorMessage.style.display = "block";
+    }
+  } catch (err) {
+    console.error(err);
+    errorMessage.innerText = "Server error!";
+    errorMessage.style.display = "block";
+  }
+});
+
+// Contact form logic END
+
+
+// Back to top button
+const backToTop = document.getElementById("backToTop");
+
+
+    // Back to top button
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
