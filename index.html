@@ -659,10 +659,9 @@
     <div class="container nav">
       <div class="nav-left">
         <!-- Replace src with your logo path -->
-        <img
-          src="./images/sk-logo.png">
+        <img src="images/sk-logo.png"
           alt="SK Infotech Solutions Logo"
-          class="nav-logo"
+          class="nav-logo">
         />
         <div class="brand-text">
           <span class="brand-name">SK Infotech Solutions</span>
@@ -1216,12 +1215,12 @@ contactForm.addEventListener("submit", async (e) => {
   }
 
   try {
-    const response = await fetch("https://sk-project-1.onrender.com/contact", {
+    const response = await fetch("https://sk-project-biiq.onrender.com/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, phone, service, message }),
+      body: JSON.stringify({ name, email, phone, service, message })
     });
 
     const data = await response.json();
@@ -1230,7 +1229,8 @@ contactForm.addEventListener("submit", async (e) => {
       successMessage.innerText = "Request sent successfully!";
       successMessage.style.display = "block";
       contactForm.reset();
-    } else {
+    } 
+    else {
       errorMessage.innerText = data.msg || "Error sending request!";
       errorMessage.style.display = "block";
     }
