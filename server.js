@@ -1,4 +1,5 @@
 const express = require("express");
+const nodemailer = require("nodemailer");
 const cors = require("cors");
 
 const app = express();
@@ -13,24 +14,35 @@ app.get("/", (req, res) => {
 });
 
 // API route
-app.post("/contact", (req, res) => {
+app.post("/contact", async (req, res) => {
+const { name, email, phone, service, message } = req.body;
+if (!name || !email || !message) {
+    return res.status(400).json({ msg: "All Required fields missing" });
+}
 try {
-  const { name, email, phone, service, message } = req.body;
-
-// validation
-   if (!name || !email || !message) {
-     return res.status(400).json({ msg: "All required fields missing" });
-  }
-// print in console (check in render logs)
-  console.log("New Contact Request:");
-  console.log(req.body);
-
-// Here you can save to DB or send email
-  res.status(200).json({ msg: "Form submitted successfully" });
-
-} catch (error) {
+  const transporter= nodemailer.createTransport({ service: "gmail", 
+auth: {
+user: "skinfotech156@gmail.com",
+pass: "sbzt crqr uksd hmhv"
+}
+});
+await transporter.sendMail({
+from: email,
+to: "skinfotech156@gmail.com",
+subject: "New Service Request",
+text: `
+    Name: ${name}
+    Email: ${email}
+    Phone: ${phone}
+    Service: ${service}
+    Message: ${message}
+   `
+});
+res.json({msg: "email sent Successfully" });
+}
+ catch (error) {
 console.error(error);
-res.status(500).json({ msg: "Server error" });
+res.status(500).json({ msg: "Error sending email" });
 }
 });
 
