@@ -71,7 +71,7 @@
       gap: 10px;
     }
     .nav-logo {
-      height: 44px;
+      height: 4
       width: auto;
     }
     .brand-text {
@@ -660,7 +660,7 @@
       <div class="nav-left">
         <!-- Replace src with your logo path -->
         <img
-          src="images/sk-logo.png"
+          src="./images/sk-logo.png">
           alt="SK Infotech Solutions Logo"
           class="nav-logo"
         />
@@ -1196,30 +1196,7 @@
           }
         });
     });
-    // Contact form simple validation (front-end only)
-    const contactForm = document.getElementById("contactForm");
-    const successMessage = document.getElementById("successMessage");
-    const errorMessage = document.getElementById("errorMessage");
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      successMessage.style.display = "none";
-      errorMessage.style.display = "none";
-      const name = contactForm.name.value.trim();
-      const email = contactForm.email.value.trim();
-      const phone = contactForm.phone.value.trim();
-      const service = contactForm.service.trim();
-      const message = contactForm.message.value.trim();
-      if (!name || !email || !message) {
-        errorMessage.style.display = "block";
-        return;
-      }
-      // For now, only show success message.
-      // To make this live, send data to an email service / backend.
-      
-  }
-
-  
-    });// Contact form logic START
+    
 
 contactForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -1239,7 +1216,7 @@ contactForm.addEventListener("submit", async (e) => {
   }
 
   try {
-    const response = await fetch("http://localhost:5000/contact", {
+    const response = await fetch("https://sk-project-1.onrender.com/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
