@@ -45,9 +45,3 @@ console.error(error);
 res.status(500).json({ msg: "Error sending email" });
 }
 });
-
-// Start server PORT
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log("Server running on PORT " + PORT);
-});
