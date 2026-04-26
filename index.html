@@ -1195,9 +1195,11 @@
           }
         });
     });
-    
+  const contactForm = document.getElementById("contactForm");
+  const successMessage = document.getElementById("successMessage");
+  const errorMessage  = document.getElementById("errorMessage");
 
-contactForm.addEventListener("submit", async (e) => {
+  contactForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   successMessage.style.display = "none";
