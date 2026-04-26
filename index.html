@@ -660,7 +660,7 @@
       <div class="nav-left">
         <!-- Replace src with your logo path -->
         <img src="images/sk-logo.png"
-          alt="SK Infotech Solutions Logo">
+          alt="SK Infotech Solutions Logo"
           class="nav-logo">
         />
         <div class="brand-text">
@@ -1206,11 +1206,11 @@
   successMessage.style.display = "none";
   errorMessage.style.display = "none";
 
-  const name = document.querySelector('input[name="title"]').value;
-  const email = document.querySelector('input[name="email"]').value;
-  const phone = document.querySelector('input[name="phone"]').value;
-  const service =document.querySelector('input[name="service"]').value;
-  const message =document.querySelector('input[name="message"]').value;
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const phone = document.getElementById("phone").value;
+const service = document.getElementById("service").value;
+const message = document.getElementById("message").value;
 
   if (!name || !email || !message) {
     errorMessage.innerText = "Please fill all required fields";
@@ -1223,11 +1223,10 @@
  {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ name, email, phone, service, message })
-    });
-
+});
     const data = await response.json();
 
     if (response.ok) {
