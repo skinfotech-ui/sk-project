@@ -20,7 +20,7 @@ if (!name || !email || !message) {
     return res.status(400).json({ msg: "All Required fields missing" });
 }
 try {
-  let transporter= nodemailer.createTransport({ service: "gmail", 
+  const transporter= nodemailer.createTransport({ service: "gmail", 
 auth: {
 user: "skinfotech156@gmail.com",
 pass: "shwi exof yhwb zxxo"
@@ -37,7 +37,7 @@ text: `
     Service: ${service}
     Message: ${message}
    `
-});
+};
 await transporter.sendMail(mailOptions);
 res.status(200).json({ success: true, message: "mail sent" });
 }
