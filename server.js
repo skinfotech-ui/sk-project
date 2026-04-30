@@ -23,11 +23,11 @@ try {
   const transporter= nodemailer.createTransport({ service: "gmail", 
 auth: {
 user: "skinfotech156@gmail.com",
-pass: "sbzt crqr uksd hmhv"
+pass: "shwi exof yhwb zxxo"
 }
 });
-await transporter.sendMail({
-from: email,
+let mailOptions = {
+from: email, 
 to: "skinfotech156@gmail.com",
 subject: "New Service Request",
 text: `
@@ -38,7 +38,8 @@ text: `
     Message: ${message}
    `
 });
-res.json({msg: "email sent Successfully" });
+await transporter.sendMail(mailOptions);
+res.status(200).json({ success: true, message: 'mail sent" });
 }
  catch (error) {
 console.error(error);
@@ -46,7 +47,6 @@ res.status(500).json({ msg: "Error sending email" });
 }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {  
-    console.log("Server running on PORT " + PORT);
+app.listen(5000, () => {  
+    console.log("Server running on PORT 5000");
 });
