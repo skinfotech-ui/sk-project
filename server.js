@@ -26,7 +26,7 @@ user: "skinfotech156@gmail.com",
 pass: "qumo fdpc dxyl nfdt"
 }
 });
-let mailOptions = {
+const mailOptions = {
 from: email, 
 to: "skinfotech156@gmail.com",
 subject: "New Service Request",
@@ -48,7 +48,7 @@ if(error) {
      });
 }
 
-return res.status(200).json({
+    res.status(200).json({
     success: true,
     message: "Mail sent successfully"
 });
@@ -56,7 +56,7 @@ return res.status(200).json({
 
 }
  catch (error) {
- console.error(error);
+ console.log(error);
  res.status(500).json({ msg: "Error sending email" });
 }
 });
