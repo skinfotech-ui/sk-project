@@ -1223,9 +1223,9 @@ if (backToTop) {
   </script>
 
 <script>
-const Form = document.querySelector("form");
+const contactForm = document.getElementById("contactForm");
 
-Form.addEventListener("submit", async (e) => {
+contactForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const formData = {
@@ -1245,7 +1245,8 @@ Form.addEventListener("submit", async (e) => {
       body: JSON.stringify(formData)
     });
     const data = await response.json();
-    alert(data.message);
+    alert("Request sent sucessfully");
+    contactform.reset();
         
     } catch (error) {
     console.log(error);
