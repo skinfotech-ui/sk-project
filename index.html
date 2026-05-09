@@ -1244,12 +1244,15 @@ contactForm.addEventListener("submit", async (e) => {
       body: JSON.stringify(formData)
     });
     const result = await response.json();
-    if(response.ok){
+    if(response.ok) {
 alert("Request sent successfully");
-contactfOrm.reset();
-}else{
+contactForm.reset();
+} else {
 alert(result.message || "Error sending request");
   }
+} catch (error);
+alert("Server error");
+}
 });
 </script>
 </body>
