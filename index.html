@@ -1219,6 +1219,7 @@ if (backToTop) {
   const yearE1 = document.getElementById("year");
   if (yearE1) {
     yearE1.textContent = new Date().getFullYear();
+}
   </script>
 
 <script>
@@ -1251,6 +1252,7 @@ contactForm.reset();
 alert(result.message || "Error sending request");
   }
 } catch (error);
+console.log(error);
 alert("Server error");
 }
 });
