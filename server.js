@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 // API route
 app.post("/contact", async (req, res) => {
 const { name, email, phone, service, message } = req.body;
-console.log(req.body);
+console.log("Request Body:", req.body);
 try {
   const transporter= nodemailer.createTransport({ host: "smtp.gmail.com",
   port: 465,
@@ -29,6 +29,14 @@ try {
 auth: {
 user: "skinfotech156@gmail.com",
 pass: "jayo czmo lngw vstr"
+}
+});
+transporter.verify(function (error, success) {
+if (error) {
+console.log("VERIFY ERROR:", error);
+}
+else {
+console.log("Server is ready to send mails");
 }
 });
 const mailOptions = {
@@ -42,7 +50,7 @@ text: `
     Phone: ${phone}
     Service: ${service}
     Message: ${message}
-   `,
+   `
 };
 transporter.sendMail(mailOptions, (error, info) =>
 {
@@ -60,8 +68,8 @@ if(error) {
 });
 });
 
-}catch (error) {
- console.log("SERVER ERROR:",error);
+} catch (error) {
+ console.log("SERVER ERROR:", error);
  res.status(500).json({ success: false,
                         message: "Server error" 
 });
@@ -69,5 +77,5 @@ if(error) {
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {  
-    console.log('Server running on PORT ${PORT}');
+    console.log(`Server running on PORT ${PORT}`);
 });
