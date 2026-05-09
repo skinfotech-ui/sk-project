@@ -21,14 +21,14 @@ app.get("/", (req, res) => {
 // API route
 app.post("/contact", async (req, res) => {
 const { name, email, phone, service, message } = req.body;
-if (!name || !email || !message) {
-    return res.status(400).json({ msg: "All Required fields missing" });
-}
+console.log(req.body);
 try {
-  const transporter= nodemailer.createTransport({ service: "gmail", 
+  const transporter= nodemailer.createTransport({ host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
 auth: {
 user: "skinfotech156@gmail.com",
-pass: "wsou atxo gxaj kmjf"
+pass: "jayo czmo lngw vstr"
 }
 });
 const mailOptions = {
@@ -47,23 +47,24 @@ text: `
 transporter.sendMail(mailOptions, (error, info) =>
 {
 if(error) {
-   console.log(error);
+   console.log("MAIL ERROR:", error);
    return res.status(500).json({
      success: false,
      message: "Error sending email"
      });
 }
-
+   console.log("Mail sent successfully");
     res.status(200).json({
     success: true,
     message: "Mail sent successfully"
 });
 });
 
-}
- catch (error) {
- console.log(error);
- res.status(500).json({ msg: "Error sending email" });
+}catch (error) {
+ console.log("SERVER ERROR:",error);
+ res.status(500).json({ success: false,
+                        message: "Server error" 
+});
 }
 });
 const PORT = process.env.PORT || 5000;
