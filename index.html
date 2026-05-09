@@ -1219,7 +1219,6 @@ if (backToTop) {
   const yearE1 = document.getElementById("year");
   if (yearE1) {
     yearE1.textContent = new Date().getFullYear();
-}
   </script>
 
 <script>
@@ -1240,17 +1239,16 @@ contactForm.addEventListener("submit", async (e) => {
     const response = await fetch("http://54.174.0.90:5000/contact", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+      "Content-Type": "application/json"
       },
       body: JSON.stringify(formData)
     });
-    const data = await response.json();
-    alert("Request sent sucessfully");
-    contactform.reset();
-        
-    } catch (error) {
-    console.log(error);
-    alert("Error sending Request");
+    const result = await response.json();
+    if(response.ok){
+alert("Request sent successfully");
+contactfOrm.reset();
+}else{
+alert(result.message || "Error sending request");
   }
 });
 </script>
