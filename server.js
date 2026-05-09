@@ -6,6 +6,11 @@ const app = express();
 
 // important middleware
 app.use(cors());
+app.use((req, res, next) => {
+res.header("Access-Control-Allow-Origin", "*");
+res.header("Access-Control-Allow-Headers", "*");
+next();
+});
 app.use(express.json());
 
 // test route (optional)
@@ -27,7 +32,8 @@ pass: "qumo fdpc dxyl nfdt"
 }
 });
 const mailOptions = {
-from: email, 
+from: "skinfotech156@gmail.com",
+replyTo: email,
 to: "skinfotech156@gmail.com",
 subject: "New Service Request",
 text: `
