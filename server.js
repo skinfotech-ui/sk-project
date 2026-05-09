@@ -42,7 +42,7 @@ text: `
     Phone: ${phone}
     Service: ${service}
     Message: ${message}
-   `
+   `,
 };
 transporter.sendMail(mailOptions, (error, info) =>
 {
