@@ -35,17 +35,10 @@ const transporter = nodemailer.createTransport({
     rejectUnauthorized: false
   }
 });
-transporter.verify((error, success) => {
-if (error) {
-console.log("VERIFY ERROR:", error);
-} else {
-console.log("Server is ready to send mails");
-}
-});
 const mailOptions = {
-from: "skinfotech156@gmail.com",
+from: process.env.BREVO_USER,
 replyTo: email,
-to: "skinfotech156@gmail.com",
+to:  process.env.BREVO_USER,
 subject: "New Service Request",
 text: `
     Name: ${name}
