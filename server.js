@@ -25,14 +25,11 @@ console.log("Request Body:", req.body);
 try {
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
-  port: 2525,
-  secure: false,
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.BREVO_USER,
     pass: process.env.BREVO_PASS
-  },
-  tls: {
-    rejectUnauthorized: false
   }
 });
 const mailOptions = {
