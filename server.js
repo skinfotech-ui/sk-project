@@ -25,8 +25,8 @@ console.log("Request Body:", req.body);
 try {
   const transporter= nodemailer.createTransport({ service: "gmail",
 auth: {
-user: "skinfotech156@gmail.com",
-pass: "bkqi pqka vgly iwyh"
+  user: process.env.EMAIL_USER,
+  pass: process.env.EMAIL_PASS
 }
 });
 transporter.verify((error, success) => {
