@@ -23,15 +23,13 @@ app.post("/contact", async (req, res) => {
 const { name, email, phone, service, message } = req.body;
 console.log("Request Body:", req.body);
 try {
-  const transporter= nodemailer.createTransport({ host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  const transporter= nodemailer.createTransport({ service: "gmail",
 auth: {
 user: "skinfotech156@gmail.com",
 pass: "bkqi pqka vgly iwyh"
 }
 });
-transporter.verify(function (error, success) {
+transporter.verify((error, success) {
 if (error) {
 console.log("VERIFY ERROR:", error);
 }
