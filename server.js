@@ -28,7 +28,7 @@ try {
   secure: true,
 auth: {
 user: "skinfotech156@gmail.com",
-pass: "jayo czmo lngw vstr"
+pass: "bkqi pqka vgly iwyh"
 }
 });
 transporter.verify(function (error, success) {
@@ -69,9 +69,9 @@ if(error) {
 });
 
 } catch (error) {
- console.log("SERVER ERROR:", error);
+ console.log("error");
  res.status(500).json({ success: false,
-                        message: "Server error" 
+                        error: error.message 
 });
 }
 });
