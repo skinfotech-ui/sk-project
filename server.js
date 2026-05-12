@@ -31,7 +31,7 @@ auth: {
 });
 transporter.verify((error, success) => {
 if (error) {
-console.log("VERIFY ERROR:", error);
+console.log("VERIFY ERROR:", error.message);
 }
 else {
 console.log("Server is ready to send mails");
