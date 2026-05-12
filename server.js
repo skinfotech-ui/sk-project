@@ -29,7 +29,7 @@ user: "skinfotech156@gmail.com",
 pass: "bkqi pqka vgly iwyh"
 }
 });
-transporter.verify((error, success) {
+transporter.verify((error, success) => {
 if (error) {
 console.log("VERIFY ERROR:", error);
 }
