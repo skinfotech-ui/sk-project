@@ -51,7 +51,7 @@ text: `
 transporter.sendMail(mailOptions, (error, info) =>
 {
 if(error) {
-   console.log("MAIL ERROR:", error);
+   console.log("MAIL ERROR FULL:", error);
    return res.status(500).json({
      success: false,
      message: "Error sending email"
