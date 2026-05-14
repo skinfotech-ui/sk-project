@@ -4,7 +4,7 @@ const { Resend } = require("resend");
 
 const app = express();
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend("re_2KdY1Rfg_26t1HvbvjDHTMEC4NBVk6gPz");
 
 // middleware
 app.use(cors());
