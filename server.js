@@ -33,7 +33,7 @@ app.post("/contact", async (req, res) => {
 
     await resend.emails.send({
 
-      from: "onboarding@resend.dev",
+      from: SK Infotech <"onboarding@resend.dev>",
 
       to: "skinfotech156@gmail.com",
 
